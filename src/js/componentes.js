@@ -127,11 +127,11 @@ ulFiltors.addEventListener('click', (event) => {
 
 //PENDIENTES
 function ejecuta(){
-    // const arreglojson = JSON.parse(localStorage.getItem('todo'));
-    // const numpendientes = arreglojson.filter(todo => !todo.completado).length;    
-    // countPendientes.innerHTML = `<strong>${numpendientes}</strong>` + ` pendiente(s)`;
+    const arreglojson = JSON.parse(localStorage.getItem('todo'));
+    const numpendientes = arreglojson.filter(todo => !todo.completado).length;    
+    countPendientes.innerHTML = `<strong>${numpendientes}</strong>` + ` pendiente(s)`;
     
-    console.log("");
+  
 }
 
 (() => {
