@@ -126,10 +126,10 @@ ulFiltors.addEventListener('click', (event) => {
 });
 
 //PENDIENTES
-function ejecuta(){
+function ejecuta() {    
+
     const arreglojson = JSON.parse(localStorage.getItem('todo'));
-    console.log(arreglojson.length);
-    if (arreglojson.length > 0) {
+    if (arreglojson) {
         const numpendientes = arreglojson.filter(todo => !todo.completado).length;    
     countPendientes.innerHTML = `<strong>${numpendientes}</strong>` + ` pendiente(s)`;
     }
