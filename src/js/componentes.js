@@ -128,8 +128,14 @@ ulFiltors.addEventListener('click', (event) => {
 //PENDIENTES
 function ejecuta(){
     const arreglojson = JSON.parse(localStorage.getItem('todo'));
-    const numpendientes = arreglojson.filter(todo => !todo.completado).length;    
+    console.log(arreglojson.length);
+    if (arreglojson.length > 0) {
+        const numpendientes = arreglojson.filter(todo => !todo.completado).length;    
     countPendientes.innerHTML = `<strong>${numpendientes}</strong>` + ` pendiente(s)`;
+    }
+    else {
+        console.log("No hay data")
+    }
     
   
 }
