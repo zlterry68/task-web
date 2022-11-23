@@ -9,7 +9,7 @@ const btnBorrar = document.querySelector('.clear-completed');
 const ulFiltors = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro');
 const countPendientes = document.querySelector('.todo-count');
-
+const labclick = document.querySelector('.lab-click');
 
 export const crearTodoHtml = (todo) =>{
     const htmlTodo = `<li class="${(todo.completado) ? 'completed' : ''}" data-id="${todo.id}">
@@ -29,9 +29,10 @@ export const crearTodoHtml = (todo) =>{
 
 
 // Eventos para pc
+
 txtInput.addEventListener('keyup', (event) => {
 
-    if (event.keyCode == 13 && txtInput.value.length > 0) {
+     if (event.keyCode == 13 && txtInput.value.length > 0) {
         console.log(txtInput.value);
         const nuevoTodo = new Todo(txtInput.value);
         todoList.nuevoTodo(nuevoTodo);
@@ -43,10 +44,9 @@ txtInput.addEventListener('keyup', (event) => {
 });
 
 // Eventos para celular
-
-txtInput.addEventListener('search', (event) => {
-
-     if (event.keyCode == 13 && txtInput.value.length > 0) {
+labclick.addEventListener('click', (event) => {
+   
+     if (txtInput.value.length > 0) {
         console.log(txtInput.value);
         const nuevoTodo = new Todo(txtInput.value);
         todoList.nuevoTodo(nuevoTodo);
@@ -70,7 +70,7 @@ divTodoList.addEventListener('click', (event) => {
         todoList.eliminarTodo(todoId);       
         divTodoList.removeChild(todoElemento);
         ejecuta();
-    }
+    } 
     console.log(todoList);
 });
   
