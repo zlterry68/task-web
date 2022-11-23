@@ -44,7 +44,7 @@ txtInput.addEventListener('keyup', (event) => {
 
 // Eventos para celular
 
-txtInput.addEventListener('keyup input', (event) => {
+txtInput.addEventListener('keyup touchend', (event) => {
 
     if (event.keyCode == 13 && txtInput.value.length > 0) {
         console.log(txtInput.value);
