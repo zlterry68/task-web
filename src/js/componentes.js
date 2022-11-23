@@ -46,7 +46,14 @@ txtInput.addEventListener('keyup', (event) => {
 // Eventos para celular
 buttonclick.addEventListener('click', (event) => {
    
-    alert("prueba button click");
+    if (txtInput.value.length > 0) {
+        console.log(txtInput.value);
+        const nuevoTodo = new Todo(txtInput.value);
+        todoList.nuevoTodo(nuevoTodo);
+        crearTodoHtml(nuevoTodo);
+        ejecuta();
+        txtInput.value = '';
+    } 
 
 });
 
