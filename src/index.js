@@ -19,4 +19,6 @@ todoList.todos.forEach(crearTodoHtml);
 // newTodo.imprimirClase();
 
 
-console.log('todos',todoList.todos);
+console.log('todos', todoList.todos);
+
+

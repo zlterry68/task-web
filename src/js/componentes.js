@@ -8,7 +8,7 @@ const txtInput = document.querySelector('.new-todo');
 const btnBorrar = document.querySelector('.clear-completed');
 const ulFiltors = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro');
-
+const countPendientes = document.querySelector('.todo-count');
 
 
 export const crearTodoHtml = (todo) =>{
@@ -35,8 +35,8 @@ txtInput.addEventListener('keyup', (event) => {
         console.log(txtInput.value);
         const nuevoTodo = new Todo(txtInput.value);
         todoList.nuevoTodo(nuevoTodo);
-
         crearTodoHtml(nuevoTodo);
+        ejecuta();
         txtInput.value = '';
     } 
 
@@ -50,9 +50,11 @@ divTodoList.addEventListener('click', (event) => {
     if (nombreElemento.includes('input')) {
         todoList.marcarCompletado(todoId);
         todoElemento.classList.toggle('completed');
+        ejecuta();
     } else if (nombreElemento.includes('button')) { // hay que borrar el todo
         todoList.eliminarTodo(todoId);       
         divTodoList.removeChild(todoElemento);
+        ejecuta();
     }
     console.log(todoList);
 });
@@ -70,6 +72,7 @@ btnBorrar.addEventListener('click', () => {
             divTodoList.removeChild(elemento);
         }
     }
+    ejecuta();
   
     
   
@@ -83,7 +86,7 @@ ulFiltors.addEventListener('click', (event) => {
     anchorFiltros.forEach(elem => elem.classList.remove('selected'));
     event.target.classList.add('selected');
 
-
+    
 
     for (const elemento of divTodoList.children) {
         elemento.classList.remove('hidden');
@@ -91,7 +94,7 @@ ulFiltors.addEventListener('click', (event) => {
         switch (filtro) {
             case 'Pendientes':
                 if (completado) {
-                    elemento.classList.add('hidden');
+                    elemento.classList.add('hidden');                    
                 }
                 break;
             case 'Completados':
@@ -106,3 +109,15 @@ ulFiltors.addEventListener('click', (event) => {
 
 
 });
+
+//PENDIENTES
+function ejecuta(){
+    const arreglojson = JSON.parse(localStorage.getItem('todo'));
+    const numpendientes = arreglojson.filter(todo => !todo.completado).length;    
+    countPendientes.innerHTML = `<strong>${numpendientes}</strong>` + ` pendiente(s)`;
+}
+
+(() => {
+    ejecuta();
+   
+} ) ();
