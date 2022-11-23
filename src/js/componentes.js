@@ -44,18 +44,18 @@ txtInput.addEventListener('keyup', (event) => {
 });
 
 // Eventos para celular
-buttonclick.addEventListener('click', (event) => {
+// buttonclick.addEventListener('click', (event) => {
    
     
-        console.log(txtInput.value);
-        const nuevoTodo = new Todo(txtInput.value);
-        todoList.nuevoTodo(nuevoTodo);
-        crearTodoHtml(nuevoTodo);
-        ejecuta();
-        txtInput.value = '';
+//         console.log(txtInput.value);
+//         const nuevoTodo = new Todo(txtInput.value);
+//         todoList.nuevoTodo(nuevoTodo);
+//         crearTodoHtml(nuevoTodo);
+//         ejecuta();
+//         txtInput.value = '';
   
 
-});
+// });
 
 //Evento delete,check tasks
 divTodoList.addEventListener('click', (event) => { 
