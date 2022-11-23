@@ -9,7 +9,7 @@ const btnBorrar = document.querySelector('.clear-completed');
 const ulFiltors = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro');
 const countPendientes = document.querySelector('.todo-count');
-const labclick = document.querySelector('.lab-click');
+const buttonclick = document.querySelector('.task-button');
 
 export const crearTodoHtml = (todo) =>{
     const htmlTodo = `<li class="${(todo.completado) ? 'completed' : ''}" data-id="${todo.id}">
@@ -44,16 +44,9 @@ txtInput.addEventListener('keyup', (event) => {
 });
 
 // Eventos para celular
-labclick.addEventListener('click', (event) => {
+buttonclick.addEventListener('click', (event) => {
    
-     if (txtInput.value.length > 0) {
-        console.log(txtInput.value);
-        const nuevoTodo = new Todo(txtInput.value);
-        todoList.nuevoTodo(nuevoTodo);
-        crearTodoHtml(nuevoTodo);
-        ejecuta();
-        txtInput.value = '';
-    } 
+    alert("prueba button click");
 
 });
 
@@ -114,7 +107,7 @@ ulFiltors.addEventListener('click', (event) => {
                 break;
             case 'Completados':
                 if (!completado) {
-                    elemento.classList.add('hidden');
+                    elemento.classList.add('hidden');                    
                 }
                 break;
 
